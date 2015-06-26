@@ -31,7 +31,7 @@ public class MockService implements Service{
 			return gone;
 		}
 }
-
+ff
 
 
 1. Factory pattern
@@ -111,5 +111,18 @@ public class MockService implements Service{
 
 	// painful thing
 	// needs to figure out the dependency upfront
+	Good:
+	1.	We can pass our mock directly to Client. No middle man(SessionFactory)
+	2.	Client on longer depneds on ServiceImpl at compile time(comparing with "Factory pattern")
+	3.	No more factory code
+
+	Bad:
+	1.	Needs to figure out the *all the* dependency upfront
 
 3. Guice dependency injection
+	1.	Factory got replaced by Module
+		Module ("domain specific langauge": use Java API write human 			language). 
+		bind and scope(Singleton, Request Scope, Session Scope)
+	2.	
+	3.	
+	4.	
