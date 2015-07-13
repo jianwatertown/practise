@@ -1,0 +1,212 @@
+What's the difference between IoC vs DI
+---------------------------------------------------------------------------
+http://stackoverflow.com/questions/6550700/inversion-of-control-vs-dependency-injection
+Answer:
+IoC is a generic term meaning rather than having the application call the methods in a framework, the framework calls implementations provided by the application.
+
+DI is a form of IoC, where implementations are passed into an object through constructors/setters/service look-ups, which the object will 'depend' on in order to behave correctly.
+
+IoC without using DI, for example would be the Template pattern because the implementation can only be changed through sub-classing.
+
+DI Frameworks are designed to make use of DI and can define interfaces (or Annotations in Java) to make it easy to pass in implementations.
+
+IoC Containers are DI frameworks that can work outside of the programming language. In some you can configure which implementations to use in metadata files (e.g. XML) which are less invasive. With some you can do IoC that would normally be impossible like inject implementation at pointcuts.
+
+
+
+How does Depedency Injection work
+---------------------------------------------------------------------------
+Depedency Injection
+1.	What is dependency injection?
+A uses B, then B is A's dependency. Instead of "new B()" in A, or A uses BFactory in A, let outside to set B in A. For example, in A you can write:
+	public A(B b) // in constructor:
+	or setB(B b)  // setter
+
+2. Why framework?
+Too many dependency to figure out. So just use a mapping:
+	A -> B, C
+	B -> C, D
+this is called "container" at higher level
+	a) dependency lookup
+	b) dependency creation and persistence
+	
+
+
+
+
+
+How does Guice work?
+---------------------------------------------------------------------------
+Google Developer Day Beijing-Guice,Java Dependency Injection
+https://www.youtube.com/watch?v=x_NpraeC3tk
+
+Sample:
+(---> depends)
+
+ClientTest --> Client --> Service
+						   	|
+						ServiceImpl
+
+public interface Service {
+	void go()
+
+}
+
+public class ServieImpl implements Service{
+	public void go(){
+		// some expensive stuff
+		// something like charging a credit card
+	}
+}
+
+public class MockService implements Service{
+		private boolean gone = false;
+		
+		public void go(){
+			gone = true;
+		}
+
+		public boolean isGone(){
+			return gone;
+		}
+}
+ff
+
+
+1. Factory pattern
+
+	// client class
+	public class Client{
+		public void go(){
+			Service serveice = ServiceFactory.getInstance();
+			service.go();
+		}
+	}
+
+	// session factory, with ablity to swap instance
+	public class ServiceFactory{
+		// a simple singleton here
+		private ServiceFactory(){}
+
+		private static Service instance = new ServiceImpl();
+
+		public static service getIntance(){
+			return instance;
+		}
+
+		public static void setIntance(Service service){
+			instance = service;
+
+		}
+	}
+
+	// test class
+	public void testClient(){
+		Service previous = ServiceFactory.getInstanace();
+		try{
+			final MockService mock = new MockService();
+			sessionFactory.setInstance(mock);
+			Client client = new Client();
+			client.go();
+			assertTrue(mock.isGone());
+		}
+		finally{
+			//	swap back in
+			//	to make unit test idempotent
+			//	when you have many dependency, it will become diffucult
+			ServiceFactory.setInstance(previous);
+		}
+	}
+
+	Question 1: How do we know client depends on service?
+	Answer: you need to look at the implementation of client to know it depends on Service. (Super Important!)
+
+	Question 2: Why do we need to reset those factory?
+	Answer 2: our unit test had to pass the mock to the factory and then clean up. Tests to be idempotent. 
+
+	Question 3: How many factory do we need to write?
+	Answer 3: One factory per dependency. That's every annoying!!!! Any people write this inconsistent way.
+
+
+2. Dependency injection by hand (inject the dependency)
+	// client class
+	private final Service service;
+
+	public Client(Service service){
+		this.service = services;
+	}
+
+	public void go(){
+		service.go();
+	}
+
+	// test code
+	public void testClient(){
+		final MockService mock = new MockService();
+		Client client = new Client(mock);
+		client.go();
+		assertTrue(mock.isGone());
+	}
+
+	// painful thing
+	// needs to figure out the dependency upfront
+	Good:
+	1.	We can pass our mock directly to Client. No middle man(SessionFactory)
+	2.	Client on longer depneds on ServiceImpl at compile time(comparing with "Factory pattern")
+	3.	No more factory code
+
+	Bad:
+	1.	Needs to figure out the *all the* dependency upfront
+
+3. Guice dependency injection
+	1.	Factory got replaced by Module
+		Module ("domain specific langauge": use Java API write human language). 
+		bind and scope(Singleton, Request Scope, Session Scope)
+
+
+Advanced Guice @Assited Injection
+---------------------------------------------------------------------------
+http://beust.com/weblog/2012/08/21/advanced-dependency-injection-with-guice/
+1. Solution 1:
+public interface GeoService {
+  /**
+   * @return true if the two addresses are within @param{miles}
+   * miles of each other.
+   */
+  boolean isNear(Address address1, Address address2, int miles);
+}
+
+public class Person {
+  // Fields omitted
+ 
+  public Person(String name, Address address, GeoService gs) {
+    this.name = name;
+    this.address = address;
+    this.geoService = gs;
+  }
+ 
+  public boolean livesNear(Person otherPerson) {
+    return geoService.isNear(address, otherPerson.getAddress(),
+        2 /* miles */);
+  }
+}
+
+Problem: Person should not have a GeoService, shoud it?
+
+2. Solution 2:
+Let Guice *only* inject GeoService, and we specify the rest in runtime
+1) To let Guice *only* inject GeoService
+	// only visable to Guice, private constractor
+	@Inject
+	private Person(@Assisted String name, @Assisted Address address,
+	    GeoService geoService) {
+	  this.name = name;
+	  this.address = address;
+	  this.geoService = geoService;
+	}
+2) To specify the rest in runtime, we need to 
+	public interface PersonFactory {
+	  Person create(String name, Address address);
+	}
+
+
