@@ -18,7 +18,7 @@
 - (instancetype) init
 {
     // wired, assigning something to yourself
-    self = [self init];
+    self = [super init];
     
     // in case, parent class is not initialized
     if(self){

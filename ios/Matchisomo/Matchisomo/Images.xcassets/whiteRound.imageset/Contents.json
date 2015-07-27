@@ -3,15 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "ronaldo.jpeg"
+      "filename" : "white-rounded-edge-box.JPG"
     },
     {
       "idiom" : "universal",
-      "scale" : "2x"
+      "scale" : "2x",
+      "filename" : "white-rounded-edge-box-1.JPG"
     },
     {
       "idiom" : "universal",
-      "scale" : "3x"
+      "scale" : "3x",
+      "filename" : "white-rounded-edge-box-2.JPG"
     }
   ],
   "info" : {

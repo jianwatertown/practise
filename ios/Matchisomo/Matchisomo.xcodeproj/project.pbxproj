@@ -72,6 +72,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3D8F919D1B65EE1A0033593B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				3D8F91961B6449530033593B /* Card.h */,
+				3D8F91971B658F6A0033593B /* PlayingCard.h */,
+				3D8F91981B658F8F0033593B /* PlayingCard.m */,
+				3D8F919A1B65ACB90033593B /* PlayingCardDeck.h */,
+				3D8F919B1B65ACC50033593B /* PlayingCardDeck.m */,
+				3D8F91911B6449100033593B /* Deck.h */,
+				3D8F91921B6449370033593B /* Deck.m */,
+				3D8F91941B6449470033593B /* Card.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		3DF722291B53833D002E8878 = {
 			isa = PBXGroup;
 			children = (
@@ -99,14 +114,7 @@
 				3DF722421B53833D002E8878 /* Images.xcassets */,
 				3DF722441B53833D002E8878 /* LaunchScreen.xib */,
 				3DF722351B53833D002E8878 /* Supporting Files */,
-				3D8F91911B6449100033593B /* Deck.h */,
-				3D8F91921B6449370033593B /* Deck.m */,
-				3D8F91941B6449470033593B /* Card.m */,
-				3D8F91961B6449530033593B /* Card.h */,
-				3D8F91971B658F6A0033593B /* PlayingCard.h */,
-				3D8F91981B658F8F0033593B /* PlayingCard.m */,
-				3D8F919A1B65ACB90033593B /* PlayingCardDeck.h */,
-				3D8F919B1B65ACC50033593B /* PlayingCardDeck.m */,
+				3D8F919D1B65EE1A0033593B /* Model */,
 			);
 			path = Matchisomo;
 			sourceTree = "<group>";
