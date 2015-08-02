@@ -9,13 +9,29 @@
 #import "ViewController.h"
 #import "PlayingCardDeck.h"
 #import "PlayingCard.h"
+#import "CardMatchingGame.h"
 #import "Card.h"
 
 @interface ViewController ()
-
+@property (nonatomic) int flipCount;
+@property (strong, nonatomic) Deck *deck;
+@property (nonatomic, strong) CardMatchingGame *game;
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
 @end
 
 @implementation ViewController
+
+
+-(CardMatchingGame *) game{ // notice this pattern again
+if(!_game)
+    _game = [[CardMatchingGame alloc] initWithCardCount:[self.cardButtons count] usingDeck:[self createDeck]];
+    return _game;
+}
+
+-(Deck *)createDeck{
+    return [[PlayingCardDeck alloc] init];
+}
+
 
 
 - (void)viewDidLoad {
@@ -34,30 +50,16 @@
     self.flipsLable.text = [NSString stringWithFormat:@"Flip: %d", self.flipCount];
 }
 
-- (IBAction)touchCardButton:(UIButton *)sender {
-    [sender setBackgroundImage:[ UIImage imageNamed:@"whiteRound"] forState:UIControlStateNormal];
-    Card *card = [self.deck drawRandomCard];
-    if(card){
-        [sender setTitle: card.content forState: UIControlStateNormal];
-        self.flipCount++;
-    }
-    else{
-        [sender setTitle: @"" forState: UIControlStateNormal];
-        [sender setBackgroundImage:[ UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
-    }
+- (IBAction)touchCardButton:(UIButton *)sender
+{
+    int cardIndex = [self.cardButtons indexOfObject:sender];
+    [self.game chooseCardAtIndex:cardIndex];
+    
+    
 }
 
 
-- (Deck *) deck{
-    if(!_deck) {
-        _deck = [self createDeck];
-    }
-    return _deck;
-}
 
 
--(Deck *)createDeck{
-    return [[PlayingCardDeck alloc] init];
-}
 
 @end
