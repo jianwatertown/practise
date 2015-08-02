@@ -14,7 +14,7 @@
 // we want this to be weak because it is hold by the button
 @property (weak, nonatomic) IBOutlet UILabel *flipsLable;
 @property (nonatomic) int flipCount;
-@property (nonatomic) Deck *deck;
+@property (strong, nonatomic) Deck *deck;
 
 @end
 

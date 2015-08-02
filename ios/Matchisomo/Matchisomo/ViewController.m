@@ -20,7 +20,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setDeck:[[PlayingCardDeck alloc] init]];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -36,11 +35,29 @@
 }
 
 - (IBAction)touchCardButton:(UIButton *)sender {
+    [sender setBackgroundImage:[ UIImage imageNamed:@"whiteRound"] forState:UIControlStateNormal];
     Card *card = [self.deck drawRandomCard];
-    [sender setTitle: card.content forState: UIControlStateNormal];
-    self.flipCount++;
+    if(card){
+        [sender setTitle: card.content forState: UIControlStateNormal];
+        self.flipCount++;
+    }
+    else{
+        [sender setTitle: @""' forState: UIControlStateNormal];
+        [sender setBackgroundImage:[ UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
+    }
 }
 
 
+- (Deck *) deck{
+    if(!_deck) {
+        _deck = [self createDeck];
+    }
+    return _deck;
+}
+
+
+-(Deck *)createDeck{
+    return [[PlayingCardDeck alloc] init];
+}
 
 @end

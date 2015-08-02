@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3D13B3461B6DBEEC00B51536 /* CardMatchingGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D13B3451B6DBEEC00B51536 /* CardMatchingGame.m */; };
 		3D8F91931B6449370033593B /* Deck.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8F91921B6449370033593B /* Deck.m */; };
 		3D8F91951B6449470033593B /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8F91941B6449470033593B /* Card.m */; };
 		3D8F91991B658F8F0033593B /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8F91981B658F8F0033593B /* PlayingCard.m */; };
@@ -31,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D13B3451B6DBEEC00B51536 /* CardMatchingGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardMatchingGame.m; sourceTree = "<group>"; };
+		3D13B3471B6DBEFD00B51536 /* CardMatchingGame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CardMatchingGame.h; sourceTree = "<group>"; };
 		3D8F91911B6449100033593B /* Deck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Deck.h; sourceTree = "<group>"; };
 		3D8F91921B6449370033593B /* Deck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Deck.m; sourceTree = "<group>"; };
 		3D8F91941B6449470033593B /* Card.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Card.m; sourceTree = "<group>"; };
@@ -75,6 +78,8 @@
 		3D8F919D1B65EE1A0033593B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				3D13B3451B6DBEEC00B51536 /* CardMatchingGame.m */,
+				3D13B3471B6DBEFD00B51536 /* CardMatchingGame.h */,
 				3D8F91961B6449530033593B /* Card.h */,
 				3D8F91971B658F6A0033593B /* PlayingCard.h */,
 				3D8F91981B658F8F0033593B /* PlayingCard.m */,
@@ -251,6 +256,7 @@
 				3D8F91951B6449470033593B /* Card.m in Sources */,
 				3D8F91931B6449370033593B /* Deck.m in Sources */,
 				3DF7223E1B53833D002E8878 /* ViewController.m in Sources */,
+				3D13B3461B6DBEEC00B51536 /* CardMatchingGame.m in Sources */,
 				3D8F919C1B65ACC50033593B /* PlayingCardDeck.m in Sources */,
 				3DF7223B1B53833D002E8878 /* AppDelegate.m in Sources */,
 				3DF722381B53833D002E8878 /* main.m in Sources */,
