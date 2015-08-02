@@ -42,7 +42,7 @@
         self.flipCount++;
     }
     else{
-        [sender setTitle: @""' forState: UIControlStateNormal];
+        [sender setTitle: @"" forState: UIControlStateNormal];
         [sender setBackgroundImage:[ UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
     }
 }

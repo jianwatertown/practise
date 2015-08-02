@@ -11,3 +11,11 @@
 
 
 #endif
+
+
+#import <Foundation/Foundation.h>
+
+@interface CardMatchingGame: NSObject
+
+@end
+
