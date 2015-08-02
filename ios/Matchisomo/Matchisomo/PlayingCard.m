@@ -17,7 +17,7 @@
 @synthesize suit = _suit; // becase we provided setter AND getter
 
 // "@"some_string" makes a sring object
-- (NSString *) contents
+- (NSString *) content
 {
     // @ creates an array
     return [[PlayingCard rankStrings][self.rank] stringByAppendingString:self.suit];

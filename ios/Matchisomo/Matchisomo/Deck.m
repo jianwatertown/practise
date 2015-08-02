@@ -22,7 +22,9 @@
 -(NSMutableArray *) cards{
     // initlize an array
     // lazy initlization, do not to put into ini
-    if(!_cards) _cards  = [[NSMutableArray alloc] init];
+    if(!_cards) {
+        _cards  = [[NSMutableArray alloc] init];
+    }
     return _cards;
 }
 
@@ -41,7 +43,6 @@
 
 - (Card*) drawRandomCard{
     Card *randomCard = nil;
-    
     if([self.cards count])
     {
         unsigned index = arc4random() % [self.cards count];
