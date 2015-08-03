@@ -60,4 +60,27 @@
     }
 }
 
+-(int) match:(NSArray *) otherCards
+{
+    int score=0; // local variable starts with 0
+    
+    if([otherCards count]==1){
+        PlayingCard *card = [otherCards firstObject];
+        
+    // we only use . when setting properties
+    // getter() isEqualToString getter()
+    if([card.content isEqualToString:self.content]){
+        score =100;
+    }
+    else if (card.rank == self.rank ){
+        score = 5;
+    }
+    
+    else if ([card.suit isEqualToString:self.suit]){
+        score = 20;
+    }
+    }
+    return score;
+}
+
 @end

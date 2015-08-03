@@ -19,20 +19,7 @@
 
 @implementation Card
 
-
--(int) match:(Card *)card
-{
-    int score=0; // local variable starts with 0
-    
-    // we only use . when setting properties
-    // getter() isEqualToString getter()
-    if([card.content isEqualToString:self.content]){
-        score =1;
-    }
-    return score;
-}
-
--(int) matchMany: (NSArray *) otherCards;{
+-(int) match: (NSArray *) otherCards;{
     int score=0;
     
     // always class name + * card

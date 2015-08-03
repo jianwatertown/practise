@@ -56,7 +56,10 @@ static const int COST_TO_CHOOSE = 4;
 }
 
 - (void) chooseCardAtIndex:(NSUInteger)index{
+
+    
     Card *card = [self cardAtIndex:index];
+    
     if(!card.isMatched){
         
         // toggle this field
@@ -67,6 +70,7 @@ static const int COST_TO_CHOOSE = 4;
             for (Card *otherCard in self.cards){
                 if (otherCard.isChosen && !otherCard.isMatched){
                     int matchScore = [card match:@[otherCard]];  // create 1 array and put 1 card in it
+                    NSLog(@"getting score = %d",matchScore);
                     if(matchScore){
                         self.score +=matchScore * MATCH_BONUS;
                         card.matched = YES;

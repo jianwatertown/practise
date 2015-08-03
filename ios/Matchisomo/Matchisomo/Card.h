@@ -22,7 +22,5 @@
 
 
 // return_type funct_name: type_you_return variable
--(int) match:(Card *) card;
--(int) matchMany: (NSArray *) otherCards;
-
+-(int) match:(NSArray *) otherCards;
 @end
