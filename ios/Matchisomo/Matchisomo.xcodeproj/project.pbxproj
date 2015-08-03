@@ -12,6 +12,7 @@
 		3D8F91951B6449470033593B /* Card.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8F91941B6449470033593B /* Card.m */; };
 		3D8F91991B658F8F0033593B /* PlayingCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8F91981B658F8F0033593B /* PlayingCard.m */; };
 		3D8F919C1B65ACC50033593B /* PlayingCardDeck.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8F919B1B65ACC50033593B /* PlayingCardDeck.m */; };
+		3DCC2C6B1B7011B6000C16FE /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DCC2C6A1B7011B6000C16FE /* Launch Screen.xib */; };
 		3DF722381B53833D002E8878 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF722371B53833D002E8878 /* main.m */; };
 		3DF7223B1B53833D002E8878 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7223A1B53833D002E8878 /* AppDelegate.m */; };
 		3DF7223E1B53833D002E8878 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DF7223D1B53833D002E8878 /* ViewController.m */; };
@@ -42,6 +43,7 @@
 		3D8F91981B658F8F0033593B /* PlayingCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCard.m; sourceTree = "<group>"; };
 		3D8F919A1B65ACB90033593B /* PlayingCardDeck.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PlayingCardDeck.h; sourceTree = "<group>"; };
 		3D8F919B1B65ACC50033593B /* PlayingCardDeck.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlayingCardDeck.m; sourceTree = "<group>"; };
+		3DCC2C6A1B7011B6000C16FE /* Launch Screen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "Launch Screen.xib"; sourceTree = "<group>"; };
 		3DF722321B53833D002E8878 /* Matchisomo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Matchisomo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3DF722361B53833D002E8878 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3DF722371B53833D002E8878 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 		3DF722291B53833D002E8878 = {
 			isa = PBXGroup;
 			children = (
+				3DCC2C6A1B7011B6000C16FE /* Launch Screen.xib */,
 				3DF722341B53833D002E8878 /* Matchisomo */,
 				3DF7224E1B53833D002E8878 /* MatchisomoTests */,
 				3DF722331B53833D002E8878 /* Products */,
@@ -201,6 +204,7 @@
 				TargetAttributes = {
 					3DF722311B53833D002E8878 = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = REN474A8PH;
 					};
 					3DF7224A1B53833D002E8878 = {
 						CreatedOnToolsVersion = 6.2;
@@ -233,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3DF722411B53833D002E8878 /* Main.storyboard in Resources */,
+				3DCC2C6B1B7011B6000C16FE /* Launch Screen.xib in Resources */,
 				3DF722461B53833D002E8878 /* LaunchScreen.xib in Resources */,
 				3DF722431B53833D002E8878 /* Images.xcassets in Resources */,
 			);
@@ -381,9 +386,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Matchisomo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -392,9 +400,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Matchisomo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
