@@ -16,9 +16,9 @@
 @implementation CardMatchingGame
 
 
-static const int MISMATCH_PENALTY = 2;
+static const int MISMATCH_PENALTY = 4;
 static const int MATCH_BONUS = 4;
-static const int COST_TO_CHOOSE = 4;
+static const int COST_TO_CHOOSE = 2;
 
 - (NSMutableArray *) cards
 {

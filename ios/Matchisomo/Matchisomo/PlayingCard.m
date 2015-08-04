@@ -73,11 +73,11 @@
         score =100;
     }
     else if (card.rank == self.rank ){
-        score = 5;
+        score = 20;
     }
     
     else if ([card.suit isEqualToString:self.suit]){
-        score = 20;
+        score = 5;
     }
     }
     return score;
