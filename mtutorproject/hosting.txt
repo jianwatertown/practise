@@ -1,0 +1,12 @@
+1. EC2
+username: james.wang.cs@gmail.com
+
+2. Github.
+Username: james.wang.cs@gmail.com
+Password:t1gerpassword
+
+
+3. EC2 instance, .pem file attached in task
+	1. put the .pem file under ~/.ssh/
+	2. run "ssh-add ~/.ssh/tigerkeypair.pem "
+	3. run "ssh ec2-user@5ec2-52-24-37-249.us-west-2.compute.amazonaws.com" or whatever password
