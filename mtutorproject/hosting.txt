@@ -6,7 +6,9 @@ Username: james.wang.cs@gmail.com
 Password:t1gerpassword
 
 
-3. EC2 instance, .pem file attached in task
-	1. put the .pem file under ~/.ssh/
-	2. run "ssh-add ~/.ssh/tigerkeypair.pem "
-	3. run "ssh ec2-user@5ec2-52-24-37-249.us-west-2.compute.amazonaws.com" or whatever password
+3. ssh to the EC2 instance
+	1.	tigerkeypair.pem .pem file attached in task
+	(chmod 400 tigerkeypair.pem)
+	2. put the .pem file under ~/.ssh/
+	3. run "ssh-add ~/.ssh/tigerkeypair.pem "
+	4. run "ssh ec2-user@5ec2-52-24-37-249.us-west-2.compute.amazonaws.com" without password
