@@ -37,6 +37,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'polls'
 )
 
 MIDDLEWARE_CLASSES = (
@@ -52,11 +53,12 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'mysite.urls'
 
+#BASE_DIR is the project directory
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        'DIRS': [os.path.join(BASE_DIR,'templates')], # this is where the project template files live
+        'APP_DIRS': True,   # where App template files live
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -87,7 +89,7 @@ DATABASES = {
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'US/Pacific'
 
 USE_I18N = True
 
