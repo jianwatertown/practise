@@ -4,7 +4,7 @@ Django operation
 python manage.py startapp polls
 
 # 2. After you have made changes to the model files, make schema_migaration files
-# new files under /Users/jian.wang/watertown/main/mysite/polls/migrations
+# new files under /Users/jian.wang/watertown/practise/mtutorproject/mysite/polls/migrations
 # you can check the content by doing ""
 python manage.py makemigrations polls
 
@@ -20,17 +20,17 @@ python manage.py shell
 
 
 # get into mysite (root of my project)
-cd /Users/jian.wang/watertown/main/mysite
+cd /Users/jian.wang/watertown/practise/mtutorproject/mysite
 
 
 
 Just run server
 ------------------------------------
-cd /Users/jian.wang/watertown/main;virt;cd /Users/jian.wang/watertown/main/mysite;python manage.py runserver
+cd /Users/jian.wang/watertown/practise/mtutorproject;virt;cd /Users/jian.wang/watertown/practise/mtutorproject/mysite;python manage.py runserver
 
 Just run shell (to inspect a running server)
 ------------------------------------
-cd /Users/jian.wang/watertown/main;virt;cd /Users/jian.wang/watertown/main/mysite;python manage.py shell
+cd /Users/jian.wang/watertown/practise/mtutorproject;virt;cd /Users/jian.wang/watertown/practise/mtutorproject/mysite;python manage.py shell
 
 
 Questions
