@@ -1,0 +1,28 @@
+Git hub
+------------------------------------------------------------------------------
+cd ~
+mkdir watertown
+cd watertown/
+git clone https://github.com/jianwatertown/practise.git
+cd /Users/jian.wang/watertown/practise/mtutorproject
+
+Virtual Env
+------------------------------------------------------------------------------
+# install/make sure to install virtualenv
+pip install virtualenv
+
+# create folder to save virtual environment
+cd /Users/jian.wang/watertown/practise/mtutorproject
+mkdir virtualenv_libs
+
+# point virtualevn to its folder
+virtualenv virtualenv_libs --distribute
+-- New python executable in virtualenv_libs/bin/python2.7
+-- Also creating executable in virtualenv_libs/bin/python
+-- Installing setuptools, pip, wheel...done.
+
+# activate virtual env
+source /Users/jian.wang/watertown/main/virtualenv_libs/bin/activate
+
+# install django
+pip install django

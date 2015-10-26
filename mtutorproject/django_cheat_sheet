@@ -1,0 +1,52 @@
+Django operation
+----------------------------------------------------------------------------------
+# 1. when starting a new "App"
+python manage.py startapp polls
+
+# 2. After you have made changes to the model files, make schema_migaration files
+# new files under /Users/jian.wang/watertown/main/mysite/polls/migrations
+# you can check the content by doing ""
+python manage.py makemigrations polls
+
+# 3. After migartion files are generated, use the following command to apply the migrations
+python manage.py migrate
+
+# 4. run server
+python manage.py runserver
+
+
+# interact with shell
+python manage.py shell
+
+
+# get into mysite (root of my project)
+cd /Users/jian.wang/watertown/main/mysite
+
+
+
+Just run server
+------------------------------------
+cd /Users/jian.wang/watertown/main;virt;cd /Users/jian.wang/watertown/main/mysite;python manage.py runserver
+
+Just run shell (to inspect a running server)
+------------------------------------
+cd /Users/jian.wang/watertown/main;virt;cd /Users/jian.wang/watertown/main/mysite;python manage.py shell
+
+
+Questions
+---------------------------------------------------------------
+1. Why do we do 
+	admin.site.register(Question,QuestionAdmin) in polls/admin.py?
+# In short, to make domain object modifiable
+# admin interface is for regular users to add *Domain Objects* to the website
+(perfect usecase for "adding tutors")
+
+
+2. what does "reverse()" function do?
+	"re" + "verbose"? string concatination
+	
+3. HttpResponseRedirect does not have more data?
+	return HttpResponseRedirect(reverse('polls:results', args=(p.id,)))?
+4.	
+
+
